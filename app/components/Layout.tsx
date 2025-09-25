@@ -1,0 +1,106 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import { useSidebarState } from '../hooks/useSidebarState';
+import { usePathname } from 'next/navigation';
+import Sidebar from './Sidebar';
+import Header from './Header';
+
+interface LayoutProps {
+  children: React.ReactNode;
+}
+
+export default function Layout({ children }: LayoutProps) {
+  const { isCollapsed, isOpen, isInitialized, isNavigating, toggleOpen, setOpen, setNavigating, toggleCollapse } = useSidebarState();
+  const pathname = usePathname();
+  const [isMobile, setIsMobile] = useState(false);
+
+  const toggleSidebar = () => {
+    if (!isNavigating) {
+      toggleOpen();
+    }
+  };
+
+  const closeSidebar = () => {
+    if (!isNavigating) {
+      setOpen(false);
+    }
+  };
+
+  const handleCollapseChange = (collapsed: boolean) => {
+    // This is handled by the hook now
+  };
+
+  // Set navigation state to prevent sidebar changes during navigation
+  useEffect(() => {
+    setNavigating(true);
+    const timer = setTimeout(() => {
+      setNavigating(false);
+    }, 100); // Short delay to prevent flickering
+
+    return () => clearTimeout(timer);
+  }, [pathname, setNavigating]);
+
+  // Check if mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Don't render until sidebar state is initialized
+  if (!isInitialized) {
+    return (
+      <div className="min-h-screen bg-background sidebar-collapsed">
+        <div 
+          className="content lg:mr-4"
+          style={{
+            marginLeft: '80px',
+            transition: 'margin-left 0.3s ease'
+          }}
+        >
+          <Header onMenuClick={toggleSidebar} />
+          <main className="p-6">
+            <div>
+              {children}
+            </div>
+          </main>
+        </div>
+      </div>
+    );
+  }
+
+
+  return (
+    <div className={`min-h-screen bg-background ${isCollapsed ? 'sidebar-collapsed' : 'sidebar-expanded'}`}>
+      <Sidebar 
+        isOpen={isOpen} 
+        onClose={closeSidebar} 
+        onCollapseChange={handleCollapseChange}
+        isCollapsed={isCollapsed}
+        toggleCollapse={toggleCollapse}
+      />
+
+      <div 
+        className="content lg:mr-4"
+        style={{
+          marginLeft: isMobile ? '0px' : (isCollapsed ? '80px' : '320px'),
+          transition: 'margin-left 0.3s ease'
+        }}
+      >
+        <Header onMenuClick={toggleSidebar} />
+
+        <main className="p-6">
+          <div>
+            {children}
+          </div>
+        </main>
+      </div>
+    </div>
+  );
+}

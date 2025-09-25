@@ -1,26 +1,176 @@
 @import "tailwindcss";
 
+/* Light theme colors */
 :root {
+  /* Base colors */
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+  
+  /* Primary colors */
+  --primary: #3b82f6;
+  --primary-foreground: #ffffff;
+  
+  /* Secondary colors */
+  --secondary: #f1f5f9;
+  --secondary-foreground: #0f172a;
+  
+  /* Muted colors */
+  --muted: #f8fafc;
+  --muted-foreground: #64748b;
+  
+  /* Accent colors */
+  --accent: #f1f5f9;
+  --accent-foreground: #0f172a;
+  
+  /* Destructive colors */
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  
+  /* Border and input */
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  
+  /* Ring (focus) */
+  --ring: #3b82f6;
+  
+  /* Chart colors */
+  --chart-1: #3b82f6;
+  --chart-2: #10b981;
+  --chart-3: #f59e0b;
+  --chart-4: #ef4444;
+  --chart-5: #8b5cf6;
+  
+  /* Header colors */
+  --header: #EBE8E2;
+}
+
+/* Dark theme colors */
+.dark {
+  /* Base colors */
+  --background: #0f172a;
+  --foreground: #f8fafc;
+  --card: #1e293b;
+  --card-foreground: #f8fafc;
+  --popover: #1e293b;
+  --popover-foreground: #f8fafc;
+  
+  /* Primary colors */
+  --primary: #60a5fa;
+  --primary-foreground: #0f172a;
+  
+  /* Secondary colors */
+  --secondary: #1e293b;
+  --secondary-foreground: #f8fafc;
+  
+  /* Muted colors */
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
+  
+  /* Accent colors */
+  --accent: #1e293b;
+  --accent-foreground: #f8fafc;
+  
+  /* Destructive colors */
+  --destructive: #f87171;
+  --destructive-foreground: #0f172a;
+  
+  /* Border and input */
+  --border: #334155;
+  --input: #334155;
+  
+  /* Ring (focus) */
+  --ring: #60a5fa;
+  
+  /* Chart colors */
+  --chart-1: #60a5fa;
+  --chart-2: #34d399;
+  --chart-3: #fbbf24;
+  --chart-4: #f87171;
+  --chart-5: #a78bfa;
+  
+  /* Header colors */
+  --header: #1e293b;
 }
 
 @theme inline {
+  /* Base colors */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  
+  /* Primary colors */
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  
+  /* Secondary colors */
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  
+  /* Muted colors */
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  
+  /* Accent colors */
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  
+  /* Destructive colors */
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  
+  /* Border and input */
+  --color-border: var(--border);
+  --color-input: var(--input);
+  
+  /* Ring (focus) */
+  --color-ring: var(--ring);
+  
+  /* Header colors */
+  --color-header: var(--header);
+  
+  /* Chart colors */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  
+  /* Fonts */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Sidebar content transitions */
+.content {
+  transition: margin-left 0.3s ease !important;
+  padding: 20px;
+}
+
+.sidebar-expanded .content {
+  margin-left: 320px !important; /* 80 * 4 = 320px (lg:ml-80) */
+}
+
+.sidebar-collapsed .content {
+  margin-left: 80px !important; /* 20 * 4 = 80px (lg:ml-20) */
+}
+
+/* Mobile responsive - no margin on small screens */
+@media (max-width: 1023px) {
+  .content {
+    margin-left: 0 !important;
+  }
 }
