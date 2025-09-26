@@ -1,6 +1,9 @@
+'use client';
+
 import Layout from '../components/Layout';
 import Card from '../components/Card';
 import { Button } from '../components/Button';
+import FilterWrapper, { FilterButton, FilterIconButton, FilterCard, FilterSeparator, FilterToggle } from '../components/FilterWrapper';
 
 export default function Reservations() {
   return (
@@ -41,67 +44,57 @@ export default function Reservations() {
           </div>
 
           {/* Filter Component */}
-          <div className="flex items-center gap-3 ml-auto">
-            <button className="bg-white hover:bg-blue-50 border border-gray-200 hover:border-blue-300 rounded-lg px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-700 transition-colors duration-200">
-              Hoje
-            </button>
+          <FilterWrapper>
+            <FilterButton>Hoje</FilterButton>
             
-            <button className="bg-white hover:bg-blue-50 border border-gray-200 hover:border-blue-300 rounded-lg p-2 text-gray-600 hover:text-blue-600 transition-colors duration-200">
+            <FilterIconButton
+              icon={
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              }
+            />
+            
+            <FilterIconButton
+              icon={
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              }
+            />
+            
+            <FilterCard>
+              <span className="text-sm">Qua, 25/09/2025</span>
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-            
-            <button className="bg-white hover:bg-blue-50 border border-gray-200 hover:border-blue-300 rounded-lg p-2 text-gray-600 hover:text-blue-600 transition-colors duration-200">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-            
-            <div className="bg-white hover:bg-blue-50 border border-gray-200 hover:border-blue-300 rounded-lg px-3 py-2 flex items-center gap-2 transition-colors duration-200 cursor-pointer">
-              <span className="text-sm text-gray-700 hover:text-blue-700">Qua, 25/09/2025</span>
-              <svg className="w-4 h-4 text-gray-500 hover:text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
-            </div>
+            </FilterCard>
             
-            <div className="bg-white hover:bg-blue-50 border border-gray-200 hover:border-blue-300 rounded-lg px-3 py-2 flex items-center gap-2 transition-colors duration-200 cursor-pointer">
-              <span className="text-sm text-gray-700 hover:text-blue-700">09:00</span>
-              <svg className="w-4 h-4 text-gray-500 hover:text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <FilterCard>
+              <span className="text-sm">09:00</span>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-            </div>
+            </FilterCard>
             
-            <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
+            <FilterSeparator />
             
-            <div className="bg-white hover:bg-blue-50 border border-gray-200 hover:border-blue-300 rounded-lg px-3 py-2 flex items-center gap-2 transition-colors duration-200 cursor-pointer">
-              <span className="text-sm text-gray-700 hover:text-blue-700">10:00</span>
-              <svg className="w-4 h-4 text-gray-500 hover:text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <FilterCard>
+              <span className="text-sm">10:00</span>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-            </div>
+            </FilterCard>
             
-            <div className="flex items-center gap-2">
-              <div className="relative">
-                <input type="checkbox" id="vacant-toggle" className="sr-only" defaultChecked />
-                <label htmlFor="vacant-toggle" className="flex items-center cursor-pointer">
-                  <div className="w-11 h-6 bg-green-500 rounded-full p-1 transition-colors">
-                    <div className="w-4 h-4 bg-white rounded-full shadow-md transform translate-x-5 transition-transform"></div>
-                  </div>
-                </label>
-              </div>
-              <span className="text-sm text-gray-700">Apenas Vagos</span>
-            </div>
+            <FilterToggle label="Apenas Vagos" checked={true} onChange={() => {}} />
             
-            <button className="bg-white hover:bg-blue-50 border border-gray-200 hover:border-blue-300 rounded-lg px-3 py-2 flex items-center gap-2 text-sm text-gray-700 hover:text-blue-700 transition-colors duration-200">
+            <FilterButton className="flex items-center gap-2">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.707A1 1 0 013 7V4z" />
               </svg>
               Mais Filtros
-            </button>
-          </div>
+            </FilterButton>
+          </FilterWrapper>
         </div>
 
         {/* Integrated Calendar with Room Cards Header */}
@@ -123,14 +116,14 @@ export default function Reservations() {
                   </div>
                   
                   {/* Room Card 1 - Espaço de Eventos */}
-                  <div className="bg-white border-r border-border p-3">
+                  <div className="bg-card border-r border-border p-3">
                     <div className="h-20 bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg flex items-center justify-center mb-2">
                       <svg className="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                       </svg>
                     </div>
-                    <h3 className="font-semibold text-gray-900 mb-1 text-sm">Bloco Frodo</h3>
-                    <div className="flex items-center gap-2 text-xs text-gray-600">
+                    <h3 className="font-semibold text-foreground mb-1 text-sm">Bloco Frodo</h3>
+                    <div className="flex items-center gap-2 text-xs text-muted-foreground">
                       <div className="flex items-center gap-1">
                         <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
@@ -147,14 +140,14 @@ export default function Reservations() {
                   </div>
 
                   {/* Room Card 2 - O Solário */}
-                  <div className="bg-white border-r border-border p-3">
+                  <div className="bg-card border-r border-border p-3">
                     <div className="h-20 bg-gradient-to-br from-green-100 to-green-200 rounded-lg flex items-center justify-center mb-2">
                       <svg className="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z" />
                       </svg>
                     </div>
-                    <h3 className="font-semibold text-gray-900 mb-1 text-sm">Bloco Legolas</h3>
-                    <div className="flex items-center gap-2 text-xs text-gray-600">
+                    <h3 className="font-semibold text-foreground mb-1 text-sm">Bloco Legolas</h3>
+                    <div className="flex items-center gap-2 text-xs text-muted-foreground">
                       <div className="flex items-center gap-1">
                         <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
@@ -171,14 +164,14 @@ export default function Reservations() {
                   </div>
 
                   {/* Room Card 3 - O Loft */}
-                  <div className="bg-white border-r border-border p-3">
+                  <div className="bg-card border-r border-border p-3">
                     <div className="h-20 bg-gradient-to-br from-purple-100 to-purple-200 rounded-lg flex items-center justify-center mb-2">
                       <svg className="w-10 h-10 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                       </svg>
                     </div>
-                    <h3 className="font-semibold text-gray-900 mb-1 text-sm">Bloco Aragorn</h3>
-                    <div className="flex items-center gap-2 text-xs text-gray-600">
+                    <h3 className="font-semibold text-foreground mb-1 text-sm">Bloco Aragorn</h3>
+                    <div className="flex items-center gap-2 text-xs text-muted-foreground">
                       <div className="flex items-center gap-1">
                         <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
@@ -195,14 +188,14 @@ export default function Reservations() {
                   </div>
 
                   {/* Room Card 4 - Os Jardins */}
-                  <div className="bg-white p-3">
+                  <div className="bg-card p-3">
                     <div className="h-20 bg-gradient-to-br from-orange-100 to-orange-200 rounded-lg flex items-center justify-center mb-2">
                       <svg className="w-10 h-10 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                       </svg>
                     </div>
-                    <h3 className="font-semibold text-gray-900 mb-1 text-sm">Bloco Gimli</h3>
-                    <div className="flex items-center gap-2 text-xs text-gray-600">
+                    <h3 className="font-semibold text-foreground mb-1 text-sm">Bloco Gimli</h3>
+                    <div className="flex items-center gap-2 text-xs text-muted-foreground">
                       <div className="flex items-center gap-1">
                         <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
@@ -222,7 +215,7 @@ export default function Reservations() {
                 {/* Time slots grid */}
                 <div className="grid grid-cols-5 gap-0">
                   {/* Time column header */}
-                  <div className="bg-muted/50 border-r border-border bg-white">
+                  <div className="bg-muted/50 border-r border-border">
                     <div className="h-12 border-b border-border flex items-center justify-center text-sm font-medium text-foreground">
                       Horário
                     </div>
@@ -307,40 +300,40 @@ export default function Reservations() {
                 <div className="border-r border-border relative">
                   <div className="h-16 border-b border-border">
                     {/* Unavailable */}
-                    <div className="absolute inset-1 bg-gray-100 border border-gray-300 rounded flex items-center justify-center" style={{
-                      backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(0,0,0,0.1) 2px, rgba(0,0,0,0.1) 4px)'
+                    <div className="absolute inset-1 bg-muted/50 border border-border rounded flex items-center justify-center" style={{
+                      backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 2px, hsl(var(--muted-foreground) / 0.1) 2px, hsl(var(--muted-foreground) / 0.1) 4px)'
                     }}>
-                      <span className="text-xs font-semibold text-gray-600">Indisponível</span>
+                      <span className="text-xs font-semibold text-muted-foreground">Indisponível</span>
                     </div>
                   </div>
                 </div>
                 <div className="border-r border-border relative">
                   <div className="h-16 border-b border-border">
                     {/* Unavailable */}
-                    <div className="absolute inset-1 bg-gray-100 border border-gray-300 rounded flex items-center justify-center" style={{
-                      backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(0,0,0,0.1) 2px, rgba(0,0,0,0.1) 4px)'
+                    <div className="absolute inset-1 bg-muted/50 border border-border rounded flex items-center justify-center" style={{
+                      backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 2px, hsl(var(--muted-foreground) / 0.1) 2px, hsl(var(--muted-foreground) / 0.1) 4px)'
                     }}>
-                      <span className="text-xs font-semibold text-gray-600">Indisponível</span>
+                      <span className="text-xs font-semibold text-muted-foreground">Indisponível</span>
                     </div>
                   </div>
                 </div>
                 <div className="border-r border-border relative">
                   <div className="h-16 border-b border-border">
                     {/* Unavailable */}
-                    <div className="absolute inset-1 bg-gray-100 border border-gray-300 rounded flex items-center justify-center" style={{
-                      backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(0,0,0,0.1) 2px, rgba(0,0,0,0.1) 4px)'
+                    <div className="absolute inset-1 bg-muted/50 border border-border rounded flex items-center justify-center" style={{
+                      backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 2px, hsl(var(--muted-foreground) / 0.1) 2px, hsl(var(--muted-foreground) / 0.1) 4px)'
                     }}>
-                      <span className="text-xs font-semibold text-gray-600">Indisponível</span>
+                      <span className="text-xs font-semibold text-muted-foreground">Indisponível</span>
                     </div>
                   </div>
                 </div>
                 <div className="relative">
                   <div className="h-16 border-b border-border">
                     {/* Unavailable */}
-                    <div className="absolute inset-1 bg-gray-100 border border-gray-300 rounded flex items-center justify-center" style={{
-                      backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(0,0,0,0.1) 2px, rgba(0,0,0,0.1) 4px)'
+                    <div className="absolute inset-1 bg-muted/50 border border-border rounded flex items-center justify-center" style={{
+                      backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 2px, hsl(var(--muted-foreground) / 0.1) 2px, hsl(var(--muted-foreground) / 0.1) 4px)'
                     }}>
-                      <span className="text-xs font-semibold text-gray-600">Indisponível</span>
+                      <span className="text-xs font-semibold text-muted-foreground">Indisponível</span>
                     </div>
                   </div>
                 </div>
@@ -354,40 +347,40 @@ export default function Reservations() {
                 <div className="border-r border-border relative">
                   <div className="h-16 border-b border-border">
                     {/* Unavailable */}
-                    <div className="absolute inset-1 bg-gray-100 border border-gray-300 rounded flex items-center justify-center" style={{
-                      backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(0,0,0,0.1) 2px, rgba(0,0,0,0.1) 4px)'
+                    <div className="absolute inset-1 bg-muted/50 border border-border rounded flex items-center justify-center" style={{
+                      backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 2px, hsl(var(--muted-foreground) / 0.1) 2px, hsl(var(--muted-foreground) / 0.1) 4px)'
                     }}>
-                      <span className="text-xs font-semibold text-gray-600">Indisponível</span>
+                      <span className="text-xs font-semibold text-muted-foreground">Indisponível</span>
                     </div>
                   </div>
                 </div>
                 <div className="border-r border-border relative">
                   <div className="h-16 border-b border-border">
                     {/* Unavailable */}
-                    <div className="absolute inset-1 bg-gray-100 border border-gray-300 rounded flex items-center justify-center" style={{
-                      backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(0,0,0,0.1) 2px, rgba(0,0,0,0.1) 4px)'
+                    <div className="absolute inset-1 bg-muted/50 border border-border rounded flex items-center justify-center" style={{
+                      backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 2px, hsl(var(--muted-foreground) / 0.1) 2px, hsl(var(--muted-foreground) / 0.1) 4px)'
                     }}>
-                      <span className="text-xs font-semibold text-gray-600">Indisponível</span>
+                      <span className="text-xs font-semibold text-muted-foreground">Indisponível</span>
                     </div>
                   </div>
                 </div>
                 <div className="border-r border-border relative">
                   <div className="h-16 border-b border-border">
                     {/* Unavailable */}
-                    <div className="absolute inset-1 bg-gray-100 border border-gray-300 rounded flex items-center justify-center" style={{
-                      backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(0,0,0,0.1) 2px, rgba(0,0,0,0.1) 4px)'
+                    <div className="absolute inset-1 bg-muted/50 border border-border rounded flex items-center justify-center" style={{
+                      backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 2px, hsl(var(--muted-foreground) / 0.1) 2px, hsl(var(--muted-foreground) / 0.1) 4px)'
                     }}>
-                      <span className="text-xs font-semibold text-gray-600">Indisponível</span>
+                      <span className="text-xs font-semibold text-muted-foreground">Indisponível</span>
                     </div>
                   </div>
                 </div>
                 <div className="relative">
                   <div className="h-16 border-b border-border">
                     {/* Unavailable */}
-                    <div className="absolute inset-1 bg-gray-100 border border-gray-300 rounded flex items-center justify-center" style={{
-                      backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(0,0,0,0.1) 2px, rgba(0,0,0,0.1) 4px)'
+                    <div className="absolute inset-1 bg-muted/50 border border-border rounded flex items-center justify-center" style={{
+                      backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 2px, hsl(var(--muted-foreground) / 0.1) 2px, hsl(var(--muted-foreground) / 0.1) 4px)'
                     }}>
-                      <span className="text-xs font-semibold text-gray-600">Indisponível</span>
+                      <span className="text-xs font-semibold text-muted-foreground">Indisponível</span>
                     </div>
                   </div>
                 </div>
@@ -507,7 +500,7 @@ export default function Reservations() {
              </div>
            </div>
         </Card>
-       </div>
+    </div>
      </Layout>
   );
 }

@@ -18,11 +18,16 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   // Initialize theme from localStorage or system preference
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme') as Theme;
-    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    const initialTheme = savedTheme || systemTheme;
-    
-    setThemeState(initialTheme);
+    try {
+      const savedTheme = localStorage.getItem('theme') as Theme;
+      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      const initialTheme = savedTheme || systemTheme;
+      
+      setThemeState(initialTheme);
+    } catch (error) {
+      // Fallback to light theme if localStorage is not available
+      setThemeState('light');
+    }
     
     // Use a small delay to ensure DOM is ready
     const timer = setTimeout(() => {
@@ -40,7 +45,13 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     requestAnimationFrame(() => {
       document.documentElement.classList.remove('light', 'dark');
       document.documentElement.classList.add(theme);
-      localStorage.setItem('theme', theme);
+      
+      try {
+        localStorage.setItem('theme', theme);
+      } catch (error) {
+        // localStorage not available, continue without saving
+        console.warn('localStorage not available:', error);
+      }
     });
   }, [theme, mounted]);
 

@@ -20,7 +20,7 @@ export function FilterButton({ children, onClick, className = '' }: { children: 
   return (
     <button 
       onClick={onClick}
-      className={`bg-white hover:bg-blue-50 border border-gray-200 hover:border-blue-300 rounded-lg px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-700 transition-colors duration-200 ${className}`}
+      className={`bg-secondary hover:bg-accent border border-border hover:border-ring rounded-lg px-3 py-2 text-sm font-medium text-foreground hover:text-accent-foreground transition-colors duration-200 ${className}`}
     >
       {children}
     </button>
@@ -31,7 +31,7 @@ export function FilterIconButton({ icon, onClick, className = '' }: { icon: Reac
   return (
     <button 
       onClick={onClick}
-      className={`bg-white hover:bg-blue-50 border border-gray-200 hover:border-blue-300 rounded-lg p-2 text-gray-600 hover:text-blue-600 transition-colors duration-200 ${className}`}
+      className={`bg-secondary hover:bg-accent border border-border hover:border-ring rounded-lg p-2 text-muted-foreground hover:text-accent-foreground transition-colors duration-200 ${className}`}
     >
       {icon}
     </button>
@@ -42,7 +42,7 @@ export function FilterCard({ children, onClick, className = '' }: { children: Re
   return (
     <div 
       onClick={onClick}
-      className={`bg-white hover:bg-blue-50 border border-gray-200 hover:border-blue-300 rounded-lg px-3 py-2 flex items-center gap-2 transition-colors duration-200 cursor-pointer ${className}`}
+      className={`bg-secondary hover:bg-accent border border-border hover:border-ring rounded-lg px-3 py-2 flex items-center gap-2 transition-colors duration-200 cursor-pointer ${className}`}
     >
       {children}
     </div>
@@ -51,7 +51,7 @@ export function FilterCard({ children, onClick, className = '' }: { children: Re
 
 export function FilterSeparator() {
   return (
-    <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg className="w-4 h-4 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
     </svg>
   );
@@ -63,12 +63,12 @@ export function FilterToggle({ label, checked, onChange }: { label: string; chec
       <div className="relative">
         <input type="checkbox" id="vacant-toggle" className="sr-only" checked={checked} onChange={onChange} />
         <label htmlFor="vacant-toggle" className="flex items-center cursor-pointer">
-          <div className={`w-11 h-6 rounded-full p-1 transition-colors ${checked ? 'bg-green-500' : 'bg-gray-300'}`}>
-            <div className={`w-4 h-4 bg-white rounded-full shadow-md transition-transform ${checked ? 'translate-x-5' : 'translate-x-0'}`}></div>
+          <div className={`w-11 h-6 rounded-full p-1 transition-colors ${checked ? 'bg-green-500' : 'bg-muted'}`}>
+            <div className={`w-4 h-4 bg-secondary rounded-full shadow-md transition-transform ${checked ? 'translate-x-5' : 'translate-x-0'}`}></div>
           </div>
         </label>
       </div>
-      <span className="text-sm text-gray-700">{label}</span>
+      <span className="text-sm text-foreground">{label}</span>
     </div>
   );
 }

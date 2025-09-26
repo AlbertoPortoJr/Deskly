@@ -27,7 +27,7 @@ export default function Layout({ children }: LayoutProps) {
     }
   };
 
-  const handleCollapseChange = (collapsed: boolean) => {
+  const handleCollapseChange = () => {
     // This is handled by the hook now
   };
 

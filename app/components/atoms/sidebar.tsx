@@ -4,25 +4,25 @@ import { cva } from "class-variance-authority"
 import type { VariantProps } from "class-variance-authority"
 import { PanelLeftIcon } from "lucide-react"
 
-import { useIsMobile } from "@/hooks/use-mobile"
+import { useIsMobile } from "../../hooks/use-mobile"
 import { cn } from "@/lib/utils"
-import { Button } from "@/components/atoms/button"
-import { Input } from "@/components/atoms/input"
-import { Separator } from "@/components/atoms/separator"
+import { Button } from "./button"
+import { Input } from "./input"
+import { Separator } from "./separator"
 import {
   Sheet,
   SheetContent,
   SheetDescription,
   SheetHeader,
   SheetTitle,
-} from "@/components/molecules/sheet"
-import { Skeleton } from "@/components/atoms/skeleton"
+} from "../molecules/sheet"
+import { Skeleton } from "./skeleton"
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@/components/molecules/tooltip"
+} from "../molecules/tooltip"
 
 const SIDEBAR_COOKIE_NAME = "sidebar_state"
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
@@ -266,7 +266,7 @@ function SidebarTrigger({
       variant="ghost"
       size="icon"
       className={cn("size-7", className)}
-      onClick={(event) => {
+      onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
         onClick?.(event)
         toggleSidebar()
       }}
