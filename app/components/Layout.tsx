@@ -56,16 +56,12 @@ export default function Layout({ children }: LayoutProps) {
   // Don't render until sidebar state is initialized
   if (!isInitialized) {
     return (
-      <div className="min-h-screen bg-background sidebar-collapsed">
+      <div className="min-h-screen sidebar-collapsed">
         <div 
-          className="content lg:mr-4"
-          style={{
-            marginLeft: '80px',
-            transition: 'margin-left 0.3s ease'
-          }}
+          className="lg:mr-4 ml-[100px] transition-all duration-500 ease-out"
         >
           <Header onMenuClick={toggleSidebar} />
-          <main className="p-6">
+          <main className="py-4">
             <div>
               {children}
             </div>
@@ -87,15 +83,13 @@ export default function Layout({ children }: LayoutProps) {
       />
 
       <div 
-        className="content lg:mr-4"
-        style={{
-          marginLeft: isMobile ? '0px' : (isCollapsed ? '80px' : '320px'),
-          transition: 'margin-left 0.3s ease'
-        }}
+        className={`lg:mr-4 transition-all duration-500 ease-out ${
+          isMobile ? 'ml-0' : (isCollapsed ? 'ml-[100px]' : 'ml-[355px]')
+        }`}
       >
         <Header onMenuClick={toggleSidebar} />
 
-        <main className="p-6">
+        <main className="py-4">
           <div>
             {children}
           </div>

@@ -63,12 +63,12 @@ export default function Sidebar({ isOpen, onClose, onCollapseChange, isCollapsed
       
       {/* Sidebar */}
       <div
-        className={`fixed top-4 left-4 h-[calc(100vh-2rem)] bg-card/95 backdrop-blur-sm border border-border/30 rounded-2xl shadow-2xl z-50 transform transition-all duration-500 ease-out ${
+        className={`fixed top-4 left-4 h-[calc(100vh-2rem)] bg-card/95 backdrop-blur-sm border border-border/30 rounded-xl shadow-md z-50 transform transition-all duration-500 ease-out ${
           isCollapsed ? 'w-16' : 'w-80'
         } ${
           isOpen ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'
         } lg:translate-x-0 lg:opacity-100 ${
-          isCollapsed ? 'hover:w-20 cursor-pointer' : ''
+          isCollapsed ? 'cursor-pointer hover:shadow-3xl' : ''
         }`}
         onClick={(e) => {
           if (isCollapsed) {
@@ -83,7 +83,7 @@ export default function Sidebar({ isOpen, onClose, onCollapseChange, isCollapsed
           <div className={`flex items-center ${isCollapsed ? 'justify-center p-3' : 'justify-between p-4'}`}>
             <div className="flex items-center gap-3">
               <div className={`w-8 h-8 bg-gradient-to-br from-primary to-primary/80 rounded-lg flex items-center justify-center shadow-md transition-all duration-300 ease-out ${
-                isCollapsed ? 'hover:scale-110 hover:shadow-lg animate-pulse' : ''
+                isCollapsed ? 'hover:shadow-lg' : ''
               }`}>
                 <span className="text-primary-foreground font-bold text-sm">D</span>
               </div>
