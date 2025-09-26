@@ -1,5 +1,6 @@
 import Layout from '../components/Layout';
 import Card from '../components/Card';
+import { Button } from '../components/Button';
 
 export default function Reservations() {
   return (
@@ -13,12 +14,12 @@ export default function Reservations() {
                 Disponibilidade de salas.
               </p>
             </div>
-            <button className="bg-white hover:bg-primary text-gray-700 hover:text-primary-foreground border border-gray-200 hover:border-primary px-6 py-3 rounded-lg font-medium transition-colors duration-200 flex items-center gap-2">
+            <Button variant='outline' size="lg">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
               </svg>
               Reservar Sala
-            </button>
+            </Button>
           </div>
         </Card>
         

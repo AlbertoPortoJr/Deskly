@@ -20,7 +20,7 @@ export default function Card({
   };
 
   const variantClasses = {
-    default: 'bg-card border border-border shadow-md bg-red-500',
+    default: 'bg-card border border-border shadow-md',
     elevated: 'bg-card border border-border shadow-lg',
     outlined: 'bg-transparent border border-border'
   };
