@@ -34,11 +34,16 @@ export default function PageTransition({ children }: PageTransitionProps) {
     
     // Timer para finalizar o loading
     const timer = setTimeout(() => {
+      // Atualiza o conteúdo primeiro
       setDisplayChildren(children);
-      setIsLoading(false);
-      setIsTransitioning(false);
-      setShouldShowContent(true);
-      setIsReady(true);
+      
+      // Pequeno delay para garantir que o loading desapareça antes do conteúdo aparecer
+      setTimeout(() => {
+        setIsLoading(false);
+        setIsTransitioning(false);
+        setShouldShowContent(true);
+        setIsReady(true);
+      }, 50);
     }, 1000); // 1 segundo para transição mais rápida
 
     return () => clearTimeout(timer);
@@ -61,33 +66,10 @@ export default function PageTransition({ children }: PageTransitionProps) {
       
       {/* Page Content */}
       {shouldShowContent && !isTransitioning && !isLoading && isReady && (
-        <div 
-          className="animate-in fade-in-0 duration-1000 ease-out"
-          style={{
-            animation: 'fadeInSmooth 1s ease-out forwards'
-          }}
-        >
+        <div>
           {displayChildren}
         </div>
       )}
-      
-      {/* CSS customizado para animação suave */}
-      <style jsx>{`
-        @keyframes fadeInSmooth {
-          0% {
-            opacity: 0;
-            transform: scale(0.98);
-          }
-          50% {
-            opacity: 0.5;
-            transform: scale(0.99);
-          }
-          100% {
-            opacity: 1;
-            transform: scale(1);
-          }
-        }
-      `}</style>
     </div>
   );
 }
