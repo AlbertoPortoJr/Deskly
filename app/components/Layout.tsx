@@ -5,6 +5,7 @@ import { useSidebarState } from '../hooks/useSidebarState';
 import { usePathname } from 'next/navigation';
 import Sidebar from './Sidebar';
 import Header from './Header';
+import PageTransition from './PageTransition';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -36,7 +37,7 @@ export default function Layout({ children }: LayoutProps) {
     setNavigating(true);
     const timer = setTimeout(() => {
       setNavigating(false);
-    }, 100); // Short delay to prevent flickering
+    }, 100);
 
     return () => clearTimeout(timer);
   }, [pathname, setNavigating]);
@@ -90,9 +91,9 @@ export default function Layout({ children }: LayoutProps) {
         <Header onMenuClick={toggleSidebar} />
 
         <main className="py-4">
-          <div>
+          <PageTransition>
             {children}
-          </div>
+          </PageTransition>
         </main>
       </div>
     </div>
