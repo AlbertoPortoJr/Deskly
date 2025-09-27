@@ -42,7 +42,7 @@ export function FilterCard({ children, onClick, className = '' }: { children: Re
   return (
     <div 
       onClick={onClick}
-      className={`bg-secondary hover:bg-accent border border-border hover:border-ring rounded-lg px-3 py-2 flex items-center gap-2 transition-colors duration-200 cursor-pointer ${className}`}
+      className={`bg-secondary hover:bg-accent border border-border hover:border-ring rounded-lg px-3 py-2 flex items-center gap-2 transition-colors duration-200 cursor-pointer text-foreground ${className}`}
     >
       {children}
     </div>

@@ -19,6 +19,7 @@ export default function CheckIn() {
     purpose: '',
     reservationCode: ''
   });
+  const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
 
   const [activeUsers] = useState([
     { id: 1, name: 'João Silva', company: 'TechCorp', area: 'Bloco Frodo', checkIn: '09:30', status: 'active' },
@@ -70,52 +71,79 @@ export default function CheckIn() {
         </Card>
 
         {/* Dashboard Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <Card>
-            <div className="bg-seci text-primary-foreground rounded-lg px-4 py-3 flex items-center gap-3">
-              <div className="w-2 h-2 bg-primary-foreground/20 rounded-full"></div>
-              <div>
-                <p className="text-sm text-black opacity-90">Usuários no Espaço</p>
-                <p className="text-xl text-black font-bold">{activeUsers.length}</p>
-              </div>
+        <div className="flex gap-4 items-center">
+          <div className="bg-card border border-border rounded-lg px-4 py-3 flex items-center gap-3 w-48">
+            <div className="w-2 h-2 bg-muted-foreground/40 rounded-full"></div>
+            <div>
+              <p className="text-sm text-muted-foreground">Usuários no Espaço</p>
+              <p className="text-xl font-bold text-foreground">{activeUsers.length}</p>
             </div>
-          </Card>
+          </div>
           
-          <Card>
-            <div className="bg-secondary text-secondary-foreground rounded-lg px-4 py-3 flex items-center gap-3">
-              <div className="w-2 h-2 bg-secondary-foreground/20 rounded-full"></div>
-              <div>
-                <p className="text-sm opacity-90">Check-ins Hoje</p>
-                <p className="text-xl font-bold">12</p>
-              </div>
+          <div className="bg-card border border-border rounded-lg px-4 py-3 flex items-center gap-3 w-48">
+            <div className="w-2 h-2 bg-muted-foreground/40 rounded-full"></div>
+            <div>
+              <p className="text-sm text-muted-foreground">Check-ins Hoje</p>
+              <p className="text-xl font-bold text-foreground">12</p>
             </div>
-          </Card>
+          </div>
 
-          <Card>
-            <div className="bg-secondary text-black rounded-lg px-4 py-3 flex items-center gap-3">
-              <div className="w-2 h-2 bg-white/20 rounded-full"></div>
-              <div>
-                <p className="text-sm opacity-90">Taxa de Ocupação</p>
-                <p className="text-xl font-bold">75%</p>
-              </div>
-            </div>
-          </Card>
+
+          {/* Filter Component */}
+          <FilterWrapper>
+            <FilterButton>Essa semana</FilterButton>
+            <FilterButton>Ontem</FilterButton>
+            <FilterButton>Hoje</FilterButton>
+            
+            <FilterCard onClick={() => setShowAdvancedFilters(!showAdvancedFilters)}>
+              <span className="text-sm">Mais Filtros</span>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </FilterCard>
+          </FilterWrapper>
         </div>
+
+        {/* Advanced Filters Dropdown */}
+        {showAdvancedFilters && (
+          <div className="flex justify-end">
+            <FilterWrapper>
+              <FilterCard>
+                <span className="text-sm">Nome do Usuário</span>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </FilterCard>
+
+              <FilterCard>
+                <span className="text-sm">Organização</span>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </FilterCard>
+
+              <FilterCard>
+                <span className="text-sm">Bloco</span>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </FilterCard>
+
+              <FilterCard>
+                <span className="text-sm">Horário de Entrada</span>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </FilterCard>
+            </FilterWrapper>
+          </div>
+        )}
 
 
         {/* Active Users Table */}
         <Card>
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-xl font-semibold text-foreground">Usuários Ativos</h2>
-            <FilterWrapper>
-              <FilterButton>Hoje</FilterButton>
-              <FilterCard>
-                <span className="text-sm">Todos os Blocos</span>
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </FilterCard>
-            </FilterWrapper>
           </div>
           
           <div className="overflow-x-auto">
@@ -123,8 +151,8 @@ export default function CheckIn() {
               <thead>
                 <tr className="border-b border-border">
                   <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Nome</th>
-                  <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Empresa</th>
-                  <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Área</th>
+                  <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Organização</th>
+                  <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Bloco</th>
                   <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Check-in</th>
                   <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Ações</th>
                 </tr>

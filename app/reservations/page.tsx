@@ -27,7 +27,7 @@ export default function Reservations() {
         </Card>
         
         <div className="flex gap-4 items-center">
-          <div className="bg-primary text-primary-foreground rounded-lg px-4 py-3 flex items-center gap-3">
+          <div className="bg-primary text-primary-foreground rounded-lg px-4 py-3 flex items-center gap-3 w-48">
             <div className="w-2 h-2 bg-primary-foreground/20 rounded-full"></div>
             <div>
               <p className="text-sm opacity-90">Salas Disponíveis</p>
@@ -35,7 +35,7 @@ export default function Reservations() {
             </div>
           </div>
           
-          <div className="bg-secondary text-secondary-foreground rounded-lg px-4 py-3 flex items-center gap-3">
+          <div className="bg-secondary text-secondary-foreground rounded-lg px-4 py-3 flex items-center gap-3 w-48">
             <div className="w-2 h-2 bg-secondary-foreground/20 rounded-full"></div>
             <div>
               <p className="text-sm opacity-90">Reservadas Hoje</p>
