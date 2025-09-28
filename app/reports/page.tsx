@@ -4,24 +4,17 @@ import { useState } from 'react';
 import Layout from '../components/Layout';
 import ReportTabs from '../components/ReportTabs';
 import MetricCard from '../components/MetricCard';
+import GraphCard from '../components/GraphCard';
+import LineGraph from '../components/LineGraph';
 import FilterPanel from '../components/FilterPanel';
 import FilterWrapper, { FilterCard } from '../components/FilterWrapper';
-import ChartContainer from '../components/ChartContainer';
-import ChartCard from '../components/ChartCard';
-import PieChart from '../components/PieChart';
-import LineChart from '../components/LineChart';
-import BarChart from '../components/BarChart';
-import TrendAnalysis from '../components/TrendAnalysis';
-import SpaceHeatmap from '../components/SpaceHeatmap';
 import AdvancedFilters from '../components/AdvancedFilters';
 import ExportButton from '../components/ExportButton';
 import AutoReport from '../components/AutoReport';
 import AnimatedCard from '../components/AnimatedCard';
 import LoadingSkeleton from '../components/LoadingSkeleton';
 import SmartAlerts from '../components/SmartAlerts';
-import AIPredictions from '../components/AIPredictions';
 import BenchmarkComparison from '../components/BenchmarkComparison';
-import AutoInsights from '../components/AutoInsights';
 import EmptyState from '../components/EmptyState';
 import ErrorBoundary from '../components/ErrorBoundary';
 import ErrorState from '../components/ErrorState';
@@ -87,40 +80,41 @@ export default function Reports() {
               />
             </div>
 
-                        {/* Gráficos em Grid Padronizado */}
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                          <ChartCard
-                            title="Ocupação por Espaço" 
-                            subtitle="Distribuição atual"
-                          >
-                            <PieChart 
-                              data={[
-                                { label: 'Frodo', value: 12, color: '#3B82F6' },
-                                { label: 'Legolas', value: 8, color: '#10B981' },
-                                { label: 'Aragorn', value: 15, color: '#F59E0B' },
-                                { label: 'Gimli', value: 6, color: '#EF4444' }
-                              ]}
-                              size={140}
-                            />
-                          </ChartCard>
+            {/* Gráficos de Exemplo */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <GraphCard 
+                title="Ocupação em Tempo Real" 
+                subtitle="Distribuição atual por espaços"
+              >
+                <div className="flex items-center justify-center w-full h-full">
+                  <div className="text-center">
+                    <div className="text-6xl mb-4">📊</div>
+                    <p className="text-lg font-medium text-foreground mb-2">Gráfico em Desenvolvimento</p>
+                    <p className="text-sm text-muted-foreground">
+                      Este espaço será usado para visualizações de dados
+                    </p>
+                  </div>
+                </div>
+              </GraphCard>
 
-                          <ChartCard 
-                            title="Ocupação por Hora" 
-                            subtitle="Últimas 24 horas"
-                          >
-                            <LineChart 
-                              data={[
-                                { label: '00h', value: 5 },
-                                { label: '04h', value: 2 },
-                                { label: '08h', value: 15 },
-                                { label: '12h', value: 45 },
-                                { label: '16h', value: 38 },
-                                { label: '20h', value: 25 }
-                              ]}
-                              color="#10B981"
-                            />
-                          </ChartCard>
-                        </div>
+              <GraphCard 
+                title="Tendências de Uso" 
+                subtitle="Análise temporal dos últimos 30 dias"
+              >
+                <LineGraph 
+                  data={[
+                    { label: 'Sem 1', value: 45 },
+                    { label: 'Sem 2', value: 52 },
+                    { label: 'Sem 3', value: 38 },
+                    { label: 'Sem 4', value: 61 },
+                    { label: 'Sem 5', value: 48 },
+                    { label: 'Sem 6', value: 55 },
+                    { label: 'Sem 7', value: 42 }
+                  ]}
+                  color="#10B981"
+                />
+              </GraphCard>
+            </div>
 
             {/* Alertas e Insights */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -191,69 +185,39 @@ export default function Reports() {
               />
             </div>
 
-                        {/* Gráficos em Grid 2x2 */}
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                          <ChartCard 
-                            title="Ocupação por Espaço" 
-                            subtitle="Distribuição atual"
-                          >
-                            <PieChart 
-                              data={[
-                                { label: 'Frodo', value: 12, color: '#3B82F6' },
-                                { label: 'Legolas', value: 8, color: '#10B981' },
-                                { label: 'Aragorn', value: 15, color: '#F59E0B' },
-                                { label: 'Gimli', value: 6, color: '#EF4444' }
-                              ]}
-                              size={140}
-                            />
-                          </ChartCard>
+            {/* Gráficos de Ocupação */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <GraphCard
+                title="Ocupação por Hora"
+                subtitle="Últimas 24 horas"
+              >
+                <div className="flex items-center justify-center w-full h-full">
+                  <div className="text-center">
+                    <div className="text-6xl mb-4">📊</div>
+                    <p className="text-lg font-medium text-foreground mb-2">Gráfico em Desenvolvimento</p>
+                    <p className="text-sm text-muted-foreground">
+                      Este espaço será usado para visualizações de dados
+                    </p>
+                  </div>
+                </div>
+              </GraphCard>
 
-                          <ChartCard 
-                            title="Ocupação por Hora" 
-                            subtitle="Últimas 24 horas"
-                          >
-                            <LineChart 
-                              data={[
-                                { label: '00h', value: 5 },
-                                { label: '04h', value: 2 },
-                                { label: '08h', value: 15 },
-                                { label: '12h', value: 45 },
-                                { label: '16h', value: 38 },
-                                { label: '20h', value: 25 }
-                              ]}
-                              color="#10B981"
-                            />
-                          </ChartCard>
+              <GraphCard
+                title="Ocupação por Dia da Semana"
+                subtitle="Análise semanal"
+              >
+                <div className="flex items-center justify-center w-full h-full">
+                  <div className="text-center">
+                    <div className="text-6xl mb-4">📊</div>
+                    <p className="text-lg font-medium text-foreground mb-2">Gráfico em Desenvolvimento</p>
+                    <p className="text-sm text-muted-foreground">
+                      Este espaço será usado para visualizações de dados
+                    </p>
+                  </div>
+                </div>
+              </GraphCard>
+            </div>
 
-                          <ChartCard 
-                            title="Ocupação por Dia" 
-                            subtitle="Média semanal"
-                          >
-                            <BarChart 
-                              data={[
-                                { label: 'Seg', value: 45, color: '#3B82F6' },
-                                { label: 'Ter', value: 52, color: '#3B82F6' },
-                                { label: 'Qua', value: 48, color: '#3B82F6' },
-                                { label: 'Qui', value: 61, color: '#F59E0B' },
-                                { label: 'Sex', value: 38, color: '#10B981' }
-                              ]}
-                            />
-                          </ChartCard>
-
-                          <ChartCard 
-                            title="Análise por Espaço" 
-                            subtitle="Ocupação e satisfação"
-                          >
-                            <SpaceHeatmap 
-                              data={[
-                                { name: 'Frodo', occupancy: 75, reservations: 12, satisfaction: 4.2, color: '#3B82F6' },
-                                { name: 'Legolas', occupancy: 45, reservations: 8, satisfaction: 4.5, color: '#10B981' },
-                                { name: 'Aragorn', occupancy: 85, reservations: 15, satisfaction: 4.1, color: '#F59E0B' },
-                                { name: 'Gimli', occupancy: 30, reservations: 6, satisfaction: 4.8, color: '#EF4444' }
-                              ]}
-                            />
-                          </ChartCard>
-                        </div>
           </div>
         );
       case 'reservations':
@@ -287,54 +251,39 @@ export default function Reports() {
               />
             </div>
 
-                        {/* Gráficos em Grid */}
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                          <ChartCard 
-                            title="Tendências de Reservas" 
-                            subtitle="Comparativo mensal"
-                          >
-                            <TrendAnalysis 
-                              title="Análise de Tendências"
-                              data={[
-                                { period: 'Esta Semana', current: 156, previous: 142, change: 14, changePercent: 9.9 },
-                                { period: 'Mês Atual', current: 624, previous: 598, change: 26, changePercent: 4.3 },
-                                { period: 'Últimos 3 Meses', current: 1847, previous: 1723, change: 124, changePercent: 7.2 }
-                              ]}
-                            />
-                          </ChartCard>
+            {/* Gráficos de Reservas */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <GraphCard
+                title="Reservas por Período"
+                subtitle="Últimos 30 dias"
+              >
+                <div className="flex items-center justify-center w-full h-full">
+                  <div className="text-center">
+                    <div className="text-6xl mb-4">📊</div>
+                    <p className="text-lg font-medium text-foreground mb-2">Gráfico em Desenvolvimento</p>
+                    <p className="text-sm text-muted-foreground">
+                      Este espaço será usado para visualizações de dados
+                    </p>
+                  </div>
+                </div>
+              </GraphCard>
 
-                          <ChartCard 
-                            title="Reservas por Horário" 
-                            subtitle="Distribuição diária"
-                          >
-                            <BarChart 
-                              data={[
-                                { label: '08h', value: 12, color: '#3B82F6' },
-                                { label: '10h', value: 18, color: '#3B82F6' },
-                                { label: '12h', value: 25, color: '#F59E0B' },
-                                { label: '14h', value: 22, color: '#F59E0B' },
-                                { label: '16h', value: 15, color: '#3B82F6' },
-                                { label: '18h', value: 8, color: '#10B981' }
-                              ]}
-                            />
-                          </ChartCard>
-                        </div>
+              <GraphCard
+                title="Taxa de Cancelamento"
+                subtitle="Análise de tendências"
+              >
+                <div className="flex items-center justify-center w-full h-full">
+                  <div className="text-center">
+                    <div className="text-6xl mb-4">📊</div>
+                    <p className="text-lg font-medium text-foreground mb-2">Gráfico em Desenvolvimento</p>
+                    <p className="text-sm text-muted-foreground">
+                      Este espaço será usado para visualizações de dados
+                    </p>
+                  </div>
+                </div>
+              </GraphCard>
+            </div>
 
-                        {/* Reservas por Espaço */}
-                        <ChartCard 
-                          title="Reservas por Espaço" 
-                          subtitle="Distribuição semanal"
-                        >
-                          <BarChart 
-                            data={[
-                              { label: 'Frodo', value: 45, color: '#3B82F6' },
-                              { label: 'Legolas', value: 32, color: '#10B981' },
-                              { label: 'Aragorn', value: 58, color: '#F59E0B' },
-                              { label: 'Gimli', value: 21, color: '#EF4444' },
-                              { label: 'Gandalf', value: 38, color: '#8B5CF6' }
-                            ]}
-                          />
-                        </ChartCard>
           </div>
         );
       case 'users':
@@ -368,6 +317,38 @@ export default function Reports() {
               />
             </div>
 
+            {/* Gráficos de Usuários */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <GraphCard
+                title="Usuários Mais Ativos"
+                subtitle="Top 10 frequentadores"
+              >
+                <div className="flex items-center justify-center w-full h-full">
+                  <div className="text-center">
+                    <div className="text-6xl mb-4">📊</div>
+                    <p className="text-lg font-medium text-foreground mb-2">Gráfico em Desenvolvimento</p>
+                    <p className="text-sm text-muted-foreground">
+                      Este espaço será usado para visualizações de dados
+                    </p>
+                  </div>
+                </div>
+              </GraphCard>
+
+              <GraphCard
+                title="Padrões de Comportamento"
+                subtitle="Horários preferenciais"
+              >
+                <div className="flex items-center justify-center w-full h-full">
+                  <div className="text-center">
+                    <div className="text-6xl mb-4">📊</div>
+                    <p className="text-lg font-medium text-foreground mb-2">Gráfico em Desenvolvimento</p>
+                    <p className="text-sm text-muted-foreground">
+                      Este espaço será usado para visualizações de dados
+                    </p>
+                  </div>
+                </div>
+              </GraphCard>
+            </div>
 
             {/* Filtros Avançados */}
             {showAdvancedUserFilters && (
@@ -415,50 +396,38 @@ export default function Reports() {
             </div>
 
             {/* Gráficos Financeiros */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-              <ChartCard 
-                title="Receita por Mês" 
-                subtitle="Últimos 6 meses"
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <GraphCard
+                title="Receita vs Meta"
+                subtitle="Comparativo mensal"
               >
-                <BarChart 
-                  data={[
-                    { label: 'Ago', value: 38, color: '#3B82F6' },
-                    { label: 'Set', value: 42, color: '#3B82F6' },
-                    { label: 'Out', value: 39, color: '#3B82F6' },
-                    { label: 'Nov', value: 45, color: '#F59E0B' },
-                    { label: 'Dez', value: 48, color: '#F59E0B' },
-                    { label: 'Jan', value: 45, color: '#10B981' }
-                  ]}
-                />
-              </ChartCard>
+                <div className="flex items-center justify-center w-full h-full">
+                  <div className="text-center">
+                    <div className="text-6xl mb-4">📊</div>
+                    <p className="text-lg font-medium text-foreground mb-2">Gráfico em Desenvolvimento</p>
+                    <p className="text-sm text-muted-foreground">
+                      Este espaço será usado para visualizações de dados
+                    </p>
+                  </div>
+                </div>
+              </GraphCard>
 
-              <ChartCard 
-                title="Receita por Espaço" 
-                subtitle="Este mês"
+              <GraphCard
+                title="Margem de Lucro"
+                subtitle="Análise de rentabilidade"
               >
-                            <PieChart 
-                              data={[
-                                { label: 'Aragorn', value: 18, color: '#F59E0B' },
-                                { label: 'Frodo', value: 15, color: '#3B82F6' },
-                                { label: 'Gandalf', value: 12, color: '#8B5CF6' },
-                                { label: 'Legolas', value: 8, color: '#10B981' },
-                                { label: 'Gimli', value: 5, color: '#EF4444' }
-                              ]}
-                              size={140}
-                            />
-              </ChartCard>
+                <div className="flex items-center justify-center w-full h-full">
+                  <div className="text-center">
+                    <div className="text-6xl mb-4">📊</div>
+                    <p className="text-lg font-medium text-foreground mb-2">Gráfico em Desenvolvimento</p>
+                    <p className="text-sm text-muted-foreground">
+                      Este espaço será usado para visualizações de dados
+                    </p>
+                  </div>
+                </div>
+              </GraphCard>
             </div>
 
-            {/* Empty State para dados não disponíveis */}
-            <EmptyState
-              illustration="reports"
-              title="Dados Financeiros Parciais"
-              description="Alguns dados financeiros ainda não estão disponíveis. Configure a integração completa com seu sistema de pagamentos para visualizar todas as métricas."
-              action={{
-                label: "Configurar Integração Completa",
-                onClick: () => console.log("Configurando integração financeira completa...")
-              }}
-            />
           </div>
         );
       case 'export':
@@ -571,52 +540,16 @@ export default function Reports() {
               </div>
 
               <div className="space-y-4">
-                <AIPredictions 
-                  onPredictionAction={(predictionId, action) => {
-                    console.log(`Ação na previsão ${predictionId}:`, action);
-                  }}
-                />
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              <div className="space-y-4">
                 <BenchmarkComparison 
                   onBenchmarkAction={(metric, action) => {
                     console.log(`Ação no benchmark ${metric}:`, action);
                   }}
                 />
               </div>
-
-              <div className="space-y-4">
-                <AutoInsights 
-                  onInsightAction={(insightId, action) => {
-                    console.log(`Ação no insight ${insightId}:`, action);
-                  }}
-                />
-              </div>
             </div>
 
             {/* Estados de Erro - Compacto */}
-            <div className="bg-card border border-border rounded-lg p-4">
-              <h3 className="text-lg font-semibold text-foreground mb-4">Estados de Erro</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="p-3 border border-red-500/20 rounded-lg bg-red-500/10">
-                  <div className="flex items-center gap-2 mb-2">
-                    <div className="w-4 h-4 bg-red-500 rounded-full"></div>
-                    <h4 className="text-sm font-semibold text-foreground">Erro de Conexão</h4>
-                  </div>
-                  <p className="text-xs text-muted-foreground">Não foi possível conectar ao servidor</p>
-                </div>
-                <div className="p-3 border border-yellow-500/20 rounded-lg bg-yellow-500/10">
-                  <div className="flex items-center gap-2 mb-2">
-                    <div className="w-4 h-4 bg-yellow-500 rounded-full"></div>
-                    <h4 className="text-sm font-semibold text-foreground">Acesso Negado</h4>
-                  </div>
-                  <p className="text-xs text-muted-foreground">Permissão insuficiente para acessar dados</p>
-                </div>
-              </div>
-            </div>
+            
           </div>
         );
       default:
