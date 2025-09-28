@@ -2,10 +2,14 @@
 
 import { useState } from 'react';
 import Layout from '../components/Layout';
+import { BarChart } from '../components/ui/bar-chart';
+import { LineChart } from '../components/ui/line-chart';
+import { AreaChart } from '../components/ui/area-chart';
+import { PieChart } from '../components/ui/pie-chart';
+
 import ReportTabs from '../components/ReportTabs';
 import MetricCard from '../components/MetricCard';
 import GraphCard from '../components/GraphCard';
-import LineGraph from '../components/LineGraph';
 import FilterPanel from '../components/FilterPanel';
 import FilterWrapper, { FilterCard } from '../components/FilterWrapper';
 import AdvancedFilters from '../components/AdvancedFilters';
@@ -86,35 +90,43 @@ export default function Reports() {
                 title="Ocupação em Tempo Real" 
                 subtitle="Distribuição atual por espaços"
               >
-                <div className="flex items-center justify-center w-full h-full">
-                  <div className="text-center">
-                    <div className="text-6xl mb-4">📊</div>
-                    <p className="text-lg font-medium text-foreground mb-2">Gráfico em Desenvolvimento</p>
-                    <p className="text-sm text-muted-foreground">
-                      Este espaço será usado para visualizações de dados
-                    </p>
-                  </div>
-                </div>
+                <BarChart
+                  data={[
+                    { name: 'Aragorn', value: 95 },
+                    { name: 'Gimli', value: 78 },
+                    { name: 'Legolas', value: 62 },
+                    { name: 'Frodo', value: 45 },
+                    { name: 'Sam', value: 38 },
+                    { name: 'Gandalf', value: 29 }
+                  ]}
+                  height={256}
+                  color="#3b82f6"
+                />
               </GraphCard>
 
               <GraphCard 
                 title="Tendências de Uso" 
                 subtitle="Análise temporal dos últimos 30 dias"
               >
-                <LineGraph 
+                <LineChart
                   data={[
-                    { label: 'Sem 1', value: 45 },
-                    { label: 'Sem 2', value: 52 },
-                    { label: 'Sem 3', value: 38 },
-                    { label: 'Sem 4', value: 61 },
-                    { label: 'Sem 5', value: 48 },
-                    { label: 'Sem 6', value: 55 },
-                    { label: 'Sem 7', value: 42 }
+                    { name: 'Jan 1', value: 45 },
+                    { name: 'Jan 8', value: 52 },
+                    { name: 'Jan 15', value: 38 },
+                    { name: 'Jan 22', value: 61 },
+                    { name: 'Jan 29', value: 48 },
+                    { name: 'Feb 5', value: 55 },
+                    { name: 'Feb 12', value: 42 },
+                    { name: 'Feb 19', value: 58 },
+                    { name: 'Feb 26', value: 67 },
+                    { name: 'Mar 5', value: 53 }
                   ]}
-                  color="#10B981"
+                  height={256}
+                  color="#10b981"
                 />
               </GraphCard>
             </div>
+
 
             {/* Alertas e Insights */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -191,30 +203,37 @@ export default function Reports() {
                 title="Ocupação por Hora"
                 subtitle="Últimas 24 horas"
               >
-                <div className="flex items-center justify-center w-full h-full">
-                  <div className="text-center">
-                    <div className="text-6xl mb-4">📊</div>
-                    <p className="text-lg font-medium text-foreground mb-2">Gráfico em Desenvolvimento</p>
-                    <p className="text-sm text-muted-foreground">
-                      Este espaço será usado para visualizações de dados
-                    </p>
-                  </div>
-                </div>
+                <AreaChart
+                  data={[
+                    { name: '00:00', value: 5 },
+                    { name: '04:00', value: 3 },
+                    { name: '08:00', value: 25 },
+                    { name: '12:00', value: 65 },
+                    { name: '16:00', value: 82 },
+                    { name: '20:00', value: 35 }
+                  ]}
+                  height={256}
+                  color="#f59e0b"
+                />
               </GraphCard>
 
               <GraphCard
                 title="Ocupação por Dia da Semana"
                 subtitle="Análise semanal"
               >
-                <div className="flex items-center justify-center w-full h-full">
-                  <div className="text-center">
-                    <div className="text-6xl mb-4">📊</div>
-                    <p className="text-lg font-medium text-foreground mb-2">Gráfico em Desenvolvimento</p>
-                    <p className="text-sm text-muted-foreground">
-                      Este espaço será usado para visualizações de dados
-                    </p>
-                  </div>
-                </div>
+                <BarChart
+                  data={[
+                    { name: 'Seg', value: 68 },
+                    { name: 'Ter', value: 75 },
+                    { name: 'Qua', value: 82 },
+                    { name: 'Qui', value: 78 },
+                    { name: 'Sex', value: 85 },
+                    { name: 'Sáb', value: 45 },
+                    { name: 'Dom', value: 25 }
+                  ]}
+                  height={256}
+                  color="#ef4444"
+                />
               </GraphCard>
             </div>
 
@@ -257,30 +276,35 @@ export default function Reports() {
                 title="Reservas por Período"
                 subtitle="Últimos 30 dias"
               >
-                <div className="flex items-center justify-center w-full h-full">
-                  <div className="text-center">
-                    <div className="text-6xl mb-4">📊</div>
-                    <p className="text-lg font-medium text-foreground mb-2">Gráfico em Desenvolvimento</p>
-                    <p className="text-sm text-muted-foreground">
-                      Este espaço será usado para visualizações de dados
-                    </p>
-                  </div>
-                </div>
+                <LineChart
+                  data={[
+                    { name: 'Sem 1', value: 45 },
+                    { name: 'Sem 2', value: 52 },
+                    { name: 'Sem 3', value: 38 },
+                    { name: 'Sem 4', value: 61 },
+                    { name: 'Sem 5', value: 48 }
+                  ]}
+                  height={256}
+                  color="#8b5cf6"
+                />
               </GraphCard>
 
               <GraphCard
                 title="Taxa de Cancelamento"
                 subtitle="Análise de tendências"
               >
-                <div className="flex items-center justify-center w-full h-full">
-                  <div className="text-center">
-                    <div className="text-6xl mb-4">📊</div>
-                    <p className="text-lg font-medium text-foreground mb-2">Gráfico em Desenvolvimento</p>
-                    <p className="text-sm text-muted-foreground">
-                      Este espaço será usado para visualizações de dados
-                    </p>
-                  </div>
-                </div>
+                <AreaChart
+                  data={[
+                    { name: 'Jan', value: 15 },
+                    { name: 'Fev', value: 12 },
+                    { name: 'Mar', value: 18 },
+                    { name: 'Abr', value: 8 },
+                    { name: 'Mai', value: 14 },
+                    { name: 'Jun', value: 10 }
+                  ]}
+                  height={256}
+                  color="#ef4444"
+                />
               </GraphCard>
             </div>
 
@@ -323,30 +347,43 @@ export default function Reports() {
                 title="Usuários Mais Ativos"
                 subtitle="Top 10 frequentadores"
               >
-                <div className="flex items-center justify-center w-full h-full">
-                  <div className="text-center">
-                    <div className="text-6xl mb-4">📊</div>
-                    <p className="text-lg font-medium text-foreground mb-2">Gráfico em Desenvolvimento</p>
-                    <p className="text-sm text-muted-foreground">
-                      Este espaço será usado para visualizações de dados
-                    </p>
-                  </div>
-                </div>
+                <PieChart
+                  data={[
+                    { name: 'João Silva', value: 45 },
+                    { name: 'Maria Santos', value: 38 },
+                    { name: 'Pedro Costa', value: 32 },
+                    { name: 'Ana Oliveira', value: 28 },
+                    { name: 'Carlos Lima', value: 25 },
+                    { name: 'Outros', value: 67 }
+                  ]}
+                  height={256}
+                  colors={[
+                    "#3b82f6",
+                    "#10b981",
+                    "#f59e0b",
+                    "#ef4444",
+                    "#8b5cf6",
+                    "#6b7280"
+                  ]}
+                />
               </GraphCard>
 
               <GraphCard
                 title="Padrões de Comportamento"
                 subtitle="Horários preferenciais"
               >
-                <div className="flex items-center justify-center w-full h-full">
-                  <div className="text-center">
-                    <div className="text-6xl mb-4">📊</div>
-                    <p className="text-lg font-medium text-foreground mb-2">Gráfico em Desenvolvimento</p>
-                    <p className="text-sm text-muted-foreground">
-                      Este espaço será usado para visualizações de dados
-                    </p>
-                  </div>
-                </div>
+                <BarChart
+                  data={[
+                    { name: '08h-10h', value: 25 },
+                    { name: '10h-12h', value: 45 },
+                    { name: '12h-14h', value: 68 },
+                    { name: '14h-16h', value: 52 },
+                    { name: '16h-18h', value: 38 },
+                    { name: '18h-20h', value: 28 }
+                  ]}
+                  height={256}
+                  color="#3b82f6"
+                />
               </GraphCard>
             </div>
 
@@ -401,13 +438,36 @@ export default function Reports() {
                 title="Receita vs Meta"
                 subtitle="Comparativo mensal"
               >
-                <div className="flex items-center justify-center w-full h-full">
-                  <div className="text-center">
-                    <div className="text-6xl mb-4">📊</div>
-                    <p className="text-lg font-medium text-foreground mb-2">Gráfico em Desenvolvimento</p>
-                    <p className="text-sm text-muted-foreground">
-                      Este espaço será usado para visualizações de dados
-                    </p>
+                <div className="space-y-4">
+                  <div>
+                    <h5 className="text-sm font-medium mb-2">Receita</h5>
+                    <BarChart
+                      data={[
+                        { name: 'Jan', value: 35 },
+                        { name: 'Fev', value: 42 },
+                        { name: 'Mar', value: 38 },
+                        { name: 'Abr', value: 55 },
+                        { name: 'Mai', value: 48 },
+                        { name: 'Jun', value: 62 }
+                      ]}
+                      height={120}
+                      color="#10b981"
+                    />
+                  </div>
+                  <div>
+                    <h5 className="text-sm font-medium mb-2">Meta</h5>
+                    <BarChart
+                      data={[
+                        { name: 'Jan', value: 40 },
+                        { name: 'Fev', value: 45 },
+                        { name: 'Mar', value: 50 },
+                        { name: 'Abr', value: 50 },
+                        { name: 'Mai', value: 55 },
+                        { name: 'Jun', value: 60 }
+                      ]}
+                      height={120}
+                      color="#6b7280"
+                    />
                   </div>
                 </div>
               </GraphCard>
@@ -416,15 +476,18 @@ export default function Reports() {
                 title="Margem de Lucro"
                 subtitle="Análise de rentabilidade"
               >
-                <div className="flex items-center justify-center w-full h-full">
-                  <div className="text-center">
-                    <div className="text-6xl mb-4">📊</div>
-                    <p className="text-lg font-medium text-foreground mb-2">Gráfico em Desenvolvimento</p>
-                    <p className="text-sm text-muted-foreground">
-                      Este espaço será usado para visualizações de dados
-                    </p>
-                  </div>
-                </div>
+                <AreaChart
+                  data={[
+                    { name: 'Jan', value: 28 },
+                    { name: 'Fev', value: 32 },
+                    { name: 'Mar', value: 35 },
+                    { name: 'Abr', value: 38 },
+                    { name: 'Mai', value: 42 },
+                    { name: 'Jun', value: 45 }
+                  ]}
+                  height={256}
+                  color="#10b981"
+                />
               </GraphCard>
             </div>
 
