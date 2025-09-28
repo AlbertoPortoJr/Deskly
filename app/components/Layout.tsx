@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import { useSidebarState } from '../hooks/useSidebarState';
 import { usePathname } from 'next/navigation';
 import Sidebar from './Sidebar';
-import Header from './Header';
 import PageTransition from './PageTransition';
 
 interface LayoutProps {
@@ -61,7 +60,6 @@ export default function Layout({ children }: LayoutProps) {
         <div 
           className="lg:mr-4 ml-[100px] transition-all duration-500 ease-out"
         >
-          <Header onMenuClick={toggleSidebar} />
           <main className="py-4">
             <div>
               {children}
@@ -88,8 +86,6 @@ export default function Layout({ children }: LayoutProps) {
           isMobile ? 'ml-0' : (isCollapsed ? 'ml-[100px]' : 'ml-[355px]')
         }`}
       >
-        <Header onMenuClick={toggleSidebar} />
-
         <main className="py-4">
           <PageTransition>
             {children}

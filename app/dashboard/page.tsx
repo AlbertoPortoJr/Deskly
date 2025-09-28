@@ -1,7 +1,5 @@
 import Layout from '../components/Layout';
 import MetricCard from '../components/MetricCard';
-import SpaceHeatmap from '../components/SpaceHeatmap';
-import ChartCard from '../components/ChartCard';
 
 export default function Dashboard() {
   return (
@@ -46,62 +44,48 @@ export default function Dashboard() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Indicador de Horários de Pico */}
-            <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">
+            <div className="bg-card border border-border rounded-xl p-6 shadow-sm">
+              <h3 className="text-lg font-semibold text-foreground mb-4">
                 Horários de Pico
               </h3>
               <div className="space-y-3">
-                <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-sm font-medium text-gray-900">Pico Atual</p>
-                      <p className="text-sm text-gray-600">14h - 16h</p>
-                    </div>
-                    <div className="text-right">
-                      <p className="text-lg font-bold text-blue-600">85%</p>
-                      <p className="text-xs text-gray-500">Ocupação</p>
-                    </div>
+                <div className="flex items-center gap-3 p-3 bg-blue-500/10 border border-blue-500/20 rounded-lg">
+                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                  <div className="flex-1">
+                    <p className="text-sm font-medium text-foreground">Pico Atual</p>
+                    <p className="text-xs text-muted-foreground">14h - 16h • 85% Ocupação</p>
                   </div>
                 </div>
                 
-                <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-sm font-medium text-gray-900">Próximo Pico</p>
-                      <p className="text-sm text-gray-600">18h - 20h</p>
-                    </div>
-                    <div className="text-right">
-                      <p className="text-lg font-bold text-green-600">72%</p>
-                      <p className="text-xs text-gray-500">Previsão</p>
-                    </div>
+                <div className="flex items-center gap-3 p-3 bg-green-500/10 border border-green-500/20 rounded-lg">
+                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                  <div className="flex-1">
+                    <p className="text-sm font-medium text-foreground">Próximo Pico</p>
+                    <p className="text-xs text-muted-foreground">18h - 20h • 72% Previsão</p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Alertas de Capacidade */}
-            <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">
+            <div className="bg-card border border-border rounded-xl p-6 shadow-sm">
+              <h3 className="text-lg font-semibold text-foreground mb-4">
                 Alertas de Capacidade
               </h3>
               <div className="space-y-3">
-                <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
-                  <div className="flex items-center gap-3">
-                    <div className="w-3 h-3 bg-yellow-500 rounded-full flex-shrink-0"></div>
-                    <div>
-                      <p className="text-sm font-medium text-gray-900">Sala Aragorn - 85% ocupada</p>
-                      <p className="text-sm text-gray-600">Próximo da capacidade máxima</p>
-                    </div>
+                <div className="flex items-center gap-3 p-3 bg-yellow-500/10 border border-yellow-500/20 rounded-lg">
+                  <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                  <div className="flex-1">
+                    <p className="text-sm font-medium text-foreground">Ocupação alta em Aragorn</p>
+                    <p className="text-xs text-muted-foreground">85% • Próximo da capacidade máxima</p>
                   </div>
                 </div>
                 
-                <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
-                  <div className="flex items-center gap-3">
-                    <div className="w-3 h-3 bg-green-500 rounded-full flex-shrink-0"></div>
-                    <div>
-                      <p className="text-sm font-medium text-gray-900">Sistema funcionando normalmente</p>
-                      <p className="text-sm text-gray-600">Todas as áreas operacionais</p>
-                    </div>
+                <div className="flex items-center gap-3 p-3 bg-green-500/10 border border-green-500/20 rounded-lg">
+                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                  <div className="flex-1">
+                    <p className="text-sm font-medium text-foreground">Sistema funcionando normalmente</p>
+                    <p className="text-xs text-muted-foreground">Todas as áreas operacionais</p>
                   </div>
                 </div>
               </div>
