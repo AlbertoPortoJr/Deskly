@@ -56,7 +56,7 @@ export default function AutoReport({ onSchedule, className = '' }: AutoReportPro
               </label>
               <select
                 value={config.frequency}
-                onChange={(e) => setConfig({ ...config, frequency: e.target.value as any })}
+                onChange={(e) => setConfig({ ...config, frequency: e.target.value as 'daily' | 'weekly' | 'monthly' })}
                 className="w-full px-3 py-2 border border-border rounded-md bg-background text-foreground"
               >
                 <option value="daily">Diário</option>
@@ -71,7 +71,7 @@ export default function AutoReport({ onSchedule, className = '' }: AutoReportPro
               </label>
               <select
                 value={config.format}
-                onChange={(e) => setConfig({ ...config, format: e.target.value as any })}
+                onChange={(e) => setConfig({ ...config, format: e.target.value as 'pdf' | 'excel' })}
                 className="w-full px-3 py-2 border border-border rounded-md bg-background text-foreground"
               >
                 <option value="pdf">PDF Executivo</option>

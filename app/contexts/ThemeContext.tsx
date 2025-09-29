@@ -24,7 +24,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       const initialTheme = savedTheme || systemTheme;
       
       setThemeState(initialTheme);
-    } catch (error) {
+    } catch {
       // Fallback to light theme if localStorage is not available
       setThemeState('light');
     }

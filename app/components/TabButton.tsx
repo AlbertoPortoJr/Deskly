@@ -10,7 +10,7 @@ interface TabButtonProps {
 }
 
 export default function TabButton({ 
-  id, 
+  // id, 
   label, 
   count, 
   icon, 

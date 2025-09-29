@@ -1,4 +1,5 @@
-import { ReactNode } from 'react';
+// import { ReactNode } from 'react';
+import Image from 'next/image';
 
 interface EventCardProps {
   image: string;
@@ -30,10 +31,11 @@ export default function EventCard({
     >
       {/* Image Section */}
       <div className="relative h-48 overflow-hidden">
-        <img 
+        <Image 
           src={image} 
           alt={title}
-          className="w-full h-full object-cover"
+          fill
+          className="object-cover"
         />
         
         {/* Category Tag */}

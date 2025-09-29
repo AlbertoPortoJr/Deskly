@@ -124,7 +124,7 @@ export default function UserInsights({ data, className = '' }: UserInsightsProps
         <div className="bg-card border border-border rounded-lg p-6">
           <h3 className="text-lg font-semibold text-foreground mb-4">Espaços Favoritos</h3>
           <div className="space-y-3">
-            {['Aragorn', 'Frodo', 'Legolas', 'Gandalf', 'Gimli'].map((space, index) => {
+            {['Aragorn', 'Frodo', 'Legolas', 'Gandalf', 'Gimli'].map((space) => {
               const count = Math.floor(Math.random() * 20) + 5;
               return (
                 <div key={space} className="flex items-center justify-between">

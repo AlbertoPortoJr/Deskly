@@ -368,7 +368,7 @@ export default function Home() {
                         Falta de Controle
                       </h4>
                       <p className="text-rose-600 text-rose-700 text-sm">
-                        Sem dados reais, decisões no "feeling", tempo perdido
+                        Sem dados reais, decisões no &quot;feeling&quot;, tempo perdido
                       </p>
                     </div>
                   </div>

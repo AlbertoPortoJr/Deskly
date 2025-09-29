@@ -11,7 +11,7 @@ export * from "recharts"
 const ChartContainer = React.forwardRef<
   HTMLDivElement,
   React.ComponentProps<"div"> & {
-    config: Record<string, any>
+    config: Record<string, { color?: string; index?: number }>
   }
 >(({ id, className, children, config, ...props }, ref) => {
   const uniqueId = React.useId()
@@ -27,24 +27,15 @@ const ChartContainer = React.forwardRef<
       )}
       {...props}
     >
-      <ChartStyle id={chartId} config={config} />
+      <ChartStyle config={config} />
       {children}
     </div>
   )
 })
 ChartContainer.displayName = "Chart"
 
-const ChartStyle = ({ id, config }: { id: string; config: Record<string, any> }) => {
-  const colorConfig = Object.entries(config).reduce(
-    (acc, [key, value]) => ({
-      ...acc,
-      [key]: {
-        ...value,
-        color: `hsl(var(--chart-${value.index || 1}))`,
-      },
-    }),
-    {}
-  )
+const ChartStyle = ({ config }: { config: Record<string, { color?: string; index?: number }> }) => {
+  // Generate CSS variables for chart colors
 
   return (
     <style

@@ -15,20 +15,20 @@ import FilterWrapper, { FilterCard } from '../components/FilterWrapper';
 import AdvancedFilters from '../components/AdvancedFilters';
 import ExportButton from '../components/ExportButton';
 import AutoReport from '../components/AutoReport';
-import AnimatedCard from '../components/AnimatedCard';
-import LoadingSkeleton from '../components/LoadingSkeleton';
+// import AnimatedCard from '../components/AnimatedCard';
+// import LoadingSkeleton from '../components/LoadingSkeleton';
 import SmartAlerts from '../components/SmartAlerts';
 import BenchmarkComparison from '../components/BenchmarkComparison';
-import EmptyState from '../components/EmptyState';
+// import EmptyState from '../components/EmptyState';
 import ErrorBoundary from '../components/ErrorBoundary';
-import ErrorState from '../components/ErrorState';
+// import ErrorState from '../components/ErrorState';
 import AccessibilityWrapper from '../components/AccessibilityWrapper';
 import KeyboardNavigation from '../components/KeyboardNavigation';
 import ScreenReaderSupport from '../components/ScreenReaderSupport';
 
 export default function Reports() {
   const [activeTab, setActiveTab] = useState('overview');
-  const [filters, setFilters] = useState({
+  const [filters] = useState({
     dateRange: 'today',
     space: 'all',
     customDate: undefined as { start: string; end: string } | undefined
@@ -45,8 +45,8 @@ export default function Reports() {
     { id: 'advanced', label: 'Avançado', count: 12, icon: '🚀' }
   ];
 
-  const handleFilterChange = (newFilters: any) => {
-    setFilters(newFilters);
+  const handleFilterChange = (newFilters: Record<string, unknown>) => {
+    // setFilters(newFilters);
     // Aqui você pode implementar a lógica de filtragem dos dados
     console.log('Filtros aplicados:', newFilters);
   };

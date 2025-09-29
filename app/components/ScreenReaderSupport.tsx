@@ -116,7 +116,7 @@ export default function ScreenReaderSupport({ children, className = '' }: Screen
 
   // Expose announce function globally for use in other components
   useEffect(() => {
-    (window as any).announceToScreenReader = announce;
+    (window as Window & { announceToScreenReader?: (message: string) => void }).announceToScreenReader = announce;
   }, []);
 
   return (

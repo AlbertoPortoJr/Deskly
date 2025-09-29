@@ -10,7 +10,7 @@ interface AccessibilityWrapperProps {
 export default function AccessibilityWrapper({ children, className = '' }: AccessibilityWrapperProps) {
   const [isHighContrast, setIsHighContrast] = useState(false);
   const [isReducedMotion, setIsReducedMotion] = useState(false);
-  const [fontSize, setFontSize] = useState('normal');
+  const [fontSize] = useState('normal');
 
   useEffect(() => {
     // Check for user preferences

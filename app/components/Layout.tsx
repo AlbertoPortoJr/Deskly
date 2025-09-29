@@ -11,15 +11,15 @@ interface LayoutProps {
 }
 
 export default function Layout({ children }: LayoutProps) {
-  const { isCollapsed, isOpen, isInitialized, isNavigating, toggleOpen, setOpen, setNavigating, toggleCollapse } = useSidebarState();
+  const { isCollapsed, isOpen, isInitialized, isNavigating, setOpen, setNavigating, toggleCollapse } = useSidebarState();
   const pathname = usePathname();
   const [isMobile, setIsMobile] = useState(false);
 
-  const toggleSidebar = () => {
-    if (!isNavigating) {
-      toggleOpen();
-    }
-  };
+  // const toggleSidebar = () => {
+  //   if (!isNavigating) {
+  //     toggleOpen();
+  //   }
+  // };
 
   const closeSidebar = () => {
     if (!isNavigating) {

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import FilterWrapper, { FilterButton, FilterCard } from './FilterWrapper';
+import FilterWrapper, { FilterButton } from './FilterWrapper';
 
 interface AdvancedFiltersProps {
   onFilterChange: (filters: {
@@ -63,15 +63,15 @@ export default function AdvancedFilters({ onFilterChange }: AdvancedFiltersProps
     { id: 'poor', label: 'Ruim (< 3 estrelas)' }
   ];
 
-  const handleFilterChange = () => {
-    onFilterChange({
-      userType: selectedUserType,
-      dateRange: selectedDateRange,
-      space: selectedSpace,
-      satisfaction: selectedSatisfaction,
-      customDate: showCustomDate ? { start: customStartDate, end: customEndDate } : undefined
-    });
-  };
+  // const handleFilterChange = () => {
+  //   onFilterChange({
+  //     userType: selectedUserType,
+  //     dateRange: selectedDateRange,
+  //     space: selectedSpace,
+  //     satisfaction: selectedSatisfaction,
+  //     customDate: showCustomDate ? { start: customStartDate, end: customEndDate } : undefined
+  //   });
+  // };
 
   const handleUserTypeChange = (type: string) => {
     setSelectedUserType(type);

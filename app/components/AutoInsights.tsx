@@ -215,7 +215,7 @@ export default function AutoInsights({ onInsightAction, className = '' }: AutoIn
         ].map((tab) => (
           <button
             key={tab.id}
-            onClick={() => setFilter(tab.id as any)}
+            onClick={() => setFilter(tab.id as 'all' | 'growth' | 'efficiency' | 'opportunity' | 'warning' | 'achievement')}
             className={`px-4 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap ${
               filter === tab.id
                 ? 'bg-primary text-primary-foreground'

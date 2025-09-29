@@ -19,7 +19,7 @@ interface BenchmarkComparisonProps {
 }
 
 export default function BenchmarkComparison({ onBenchmarkAction, className = '' }: BenchmarkComparisonProps) {
-  const [benchmarkData, setBenchmarkData] = useState<BenchmarkData[]>([
+  const [benchmarkData] = useState<BenchmarkData[]>([
     {
       metric: 'Taxa de Ocupação',
       yourValue: 68,

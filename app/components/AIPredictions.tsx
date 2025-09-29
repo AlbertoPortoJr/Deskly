@@ -25,7 +25,7 @@ interface AIPredictionsProps {
 }
 
 export default function AIPredictions({ onPredictionAction, className = '' }: AIPredictionsProps) {
-  const [predictions, setPredictions] = useState<Prediction[]>([
+  const [predictions] = useState<Prediction[]>([
     {
       id: '1',
       type: 'occupancy',

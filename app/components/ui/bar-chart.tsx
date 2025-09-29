@@ -13,7 +13,7 @@ import {
 import { cn } from "@/lib/utils"
 
 interface BarChartProps {
-  data: any[]
+  data: Array<{ name: string; value: number; [key: string]: string | number }>
   className?: string
   height?: number
   showGrid?: boolean

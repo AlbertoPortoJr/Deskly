@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import FilterWrapper, { FilterButton, FilterCard } from './FilterWrapper';
+import FilterWrapper, { FilterButton } from './FilterWrapper';
 
 interface FilterPanelProps {
   onFilterChange: (filters: {
@@ -13,10 +13,10 @@ interface FilterPanelProps {
 
 export default function FilterPanel({ onFilterChange }: FilterPanelProps) {
   const [selectedDateRange, setSelectedDateRange] = useState('today');
-  const [selectedSpace, setSelectedSpace] = useState('all');
+  const [selectedSpace] = useState('all');
   const [showCustomDate, setShowCustomDate] = useState(false);
-  const [customStartDate, setCustomStartDate] = useState('');
-  const [customEndDate, setCustomEndDate] = useState('');
+  const [customStartDate] = useState('');
+  const [customEndDate] = useState('');
 
   const handleDateRangeChange = (range: string) => {
     setSelectedDateRange(range);
@@ -31,26 +31,26 @@ export default function FilterPanel({ onFilterChange }: FilterPanelProps) {
     }
   };
 
-  const handleSpaceChange = (space: string) => {
-    setSelectedSpace(space);
-    onFilterChange({
-      dateRange: selectedDateRange,
-      space: space
-    });
-  };
+  // const handleSpaceChange = (space: string) => {
+  //   setSelectedSpace(space);
+  //   onFilterChange({
+  //     dateRange: selectedDateRange,
+  //     space: space
+  //   });
+  // };
 
-  const handleCustomDateSubmit = () => {
-    if (customStartDate && customEndDate) {
-      onFilterChange({
-        dateRange: 'custom',
-        space: selectedSpace,
-        customDate: {
-          start: customStartDate,
-          end: customEndDate
-        }
-      });
-    }
-  };
+  // const handleCustomDateSubmit = () => {
+  //   if (customStartDate && customEndDate) {
+  //     onFilterChange({
+  //       dateRange: 'custom',
+  //       space: selectedSpace,
+  //       customDate: {
+  //         start: customStartDate,
+  //         end: customEndDate
+  //       }
+  //     });
+  //   }
+  // };
 
   return (
     <div className="space-y-4">
