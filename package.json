@@ -7,7 +7,7 @@
     "build": "next build --turbopack",
     "build:safe": "node scripts/safe-build.js",
     "check:deps": "node scripts/check-dependencies.js",
-    "start": "next start",
+    "start": "next start -p 3001",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
     "type-check": "tsc --noEmit"

@@ -1,0 +1,9 @@
+version: "3.9"
+
+services:
+  web:
+    image: finance-app:latest
+    container_name: finance-app
+    restart: always
+    ports:
+      - "3001:3001"  # porta do host mapeando a porta do container
