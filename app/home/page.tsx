@@ -234,7 +234,7 @@ export default function Home() {
                   className="group relative px-6 py-3 text-base font-semibold text-white bg-gradient-to-r from-emerald-600 to-teal-600 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-emerald-300 sm:px-8 sm:py-4 sm:text-lg"
               aria-label="Começar teste gratuito do Deskly Pro"
             >
-              <span className="relative z-10">Experimentar Gratuitamente</span>
+              <span className="relative z-10">Experimente Agora</span>
               <div className="absolute inset-0 bg-gradient-to-r from-teal-600 to-emerald-600 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden="true"></div>
             </Link>
             
