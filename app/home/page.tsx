@@ -64,7 +64,7 @@ export default function Home() {
                     role="img" 
                     aria-label="Logo Deskly Pro"
                   ></div>
-                  <span className="text-xl font-bold text-gray-900">Deskly Pro</span>
+                  <span className="text-xl font-bold text-gray-900">Deskly</span>
                 </div>
 
                 {/* Desktop Navigation */}
