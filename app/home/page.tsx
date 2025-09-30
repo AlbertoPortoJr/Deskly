@@ -184,7 +184,7 @@ export default function Home() {
             }`}
           >
             <span className="w-2 h-2 bg-emerald-500 rounded-full mr-2"></span>
-            Plataforma confiável para gestão de coworkings
+            Solução empresarial para gestão de espaços colaborativos
           </div>
 
           {/* Headline principal */}
@@ -197,12 +197,12 @@ export default function Home() {
                 : 'opacity-0 translate-y-8'
             }`}
           >
-            Transforme seu{' '}
+            Maximize a{' '}
             <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
-              Coworking
+              Ocupação
             </span>
             <br className="hidden sm:block" />
-            <span className="sm:hidden"> </span>em uma Máquina de Eficiência
+            <span className="sm:hidden"> </span>e Receita do seu Coworking
           </h1>
 
           {/* Subtítulo */}
@@ -215,8 +215,7 @@ export default function Home() {
                 : 'opacity-0 translate-y-6'
             }`}
           >
-            Gerencie reservas, otimize espaços e organize seu coworking com uma plataforma intuitiva e completa. 
-                <strong className="text-gray-900"> Resultados comprovados em coworkings.</strong>
+            Plataforma inteligente de gestão que automatiza reservas, otimiza espaços e aumenta a receita do seu coworking com dados em tempo real e insights estratégicos.
           </p>
 
           {/* Botões de Call-to-Action */}
@@ -232,22 +231,21 @@ export default function Home() {
             <Link 
               href="/dashboard" 
                   className="group relative px-6 py-3 text-base font-semibold text-white bg-gradient-to-r from-emerald-600 to-teal-600 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-emerald-300 sm:px-8 sm:py-4 sm:text-lg"
-              aria-label="Começar teste gratuito do Deskly Pro"
+              aria-label="Iniciar teste gratuito do Deskly Pro"
             >
-              <span className="relative z-10">Experimente Agora</span>
+              <span className="relative z-10">Iniciar Teste Gratuito</span>
               <div className="absolute inset-0 bg-gradient-to-r from-teal-600 to-emerald-600 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden="true"></div>
             </Link>
             
             <Link 
               href="/dashboard" 
                   className="flex items-center px-6 py-3 text-base font-semibold text-gray-700 bg-white border-2 border-gray-300 rounded-xl hover:border-gray-400 hover:bg-gray-50 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-gray-300 sm:px-8 sm:py-4 sm:text-lg shadow-sm"
-              aria-label="Ver demonstração do Deskly Pro"
+              aria-label="Agendar demonstração personalizada"
             >
               <svg className="w-4 h-4 mr-2 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
-              Ver Demonstração
+              Agendar Demo
             </Link>
           </div>
 
@@ -262,16 +260,16 @@ export default function Home() {
             }`}
           >
             <div className="text-center">
-                  <div className="text-3xl font-bold text-emerald-600">24/7</div>
-                  <div className="text-sm text-gray-600">Suporte Disponível</div>
+                  <div className="text-3xl font-bold text-emerald-600">+25%</div>
+                  <div className="text-sm text-gray-600">Aumento na Ocupação</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-teal-600">5min</div>
-              <div className="text-sm text-gray-600">Setup Rápido</div>
+              <div className="text-3xl font-bold text-teal-600">-50%</div>
+              <div className="text-sm text-gray-600">Redução no Tempo de Gestão</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-cyan-600">30d</div>
-              <div className="text-sm text-gray-600">Teste Grátis</div>
+              <div className="text-sm text-gray-600">Teste Gratuito</div>
             </div>
           </div>
 
